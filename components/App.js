@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Search from './Search';
 import Gif from './Gif';
 import Trending from './Trending';
-import styles from '../scss/main.scss';
+
 
 export const API_GIPHY = 'aUhPqNQX1V9W5wSNJ9J0FOaQdvwgHH7O';
 
@@ -44,8 +44,8 @@ class App extends Component {
 
     render() {
         return (
-            <div style={styles}>
-                <h1 className={styles.test}>The GIF Search </h1>
+            <div>
+                <h1 className="oklahoma">The GIF Search </h1>
                 <Search
                     onSearch={this.searchGif.bind(this)}
                 />
