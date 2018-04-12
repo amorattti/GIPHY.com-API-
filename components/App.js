@@ -1,31 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styles from './style.scss';
+import Search from './Search.js'
 const API_GIPHY = 'aUhPqNQX1V9W5wSNJ9J0FOaQdvwgHH7O';
 
-class App extends React.Component {
+
+class App extends Component {
     constructor(props){
         super(props);
         this.state = {
             loader : false,
             searchText : '',
-            gif : {}
+            gif : {},
+            test : 'krowa'
         };
-        this.searchGif();
     }
 
-    searchGif() {
+    searchGif(searchText) {
         this.setState({
             loader: true
         });
-        this.getUrl('cat', gif => { // callback(myJson)
+        this.getUrl(searchText, gif => { // callback(myJson)
             const getDetails = {
-                image: gif.data.fixed_height_downsampled_url,
-                title:  gif.data.title,
-                gifUrl: gif.data.url
+                image : gif.data.fixed_height_downsampled_url,
+                title :  gif.data.title,
+                gifUrl : gif.data.url
             }
             this.setState({
                 loader : true,
-                searchText: 'cat',
+                searchText: searchText,
                 gif : getDetails
             });
         })
@@ -43,6 +45,10 @@ class App extends React.Component {
         return (
             <div style={styles}>
                 <h1>The GIF Search </h1>
+                <Search
+                    onSearch={this.searchGif.bind(this)}
+                    test={this.state.test}
+                />
             </div>
         );
     }
