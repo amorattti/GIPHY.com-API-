@@ -10,7 +10,7 @@ class Trending extends Component {
     }
 
     componentDidMount() {
-        fetch(`http://api.giphy.com/v1/gifs/trending?&api_key=${API_GIPHY}&limit=5`)
+        fetch(`http://api.giphy.com/v1/gifs/trending?&api_key=${API_GIPHY}&limit=4`)
             .then(res => res.json())
             .catch(error => console.error('Error:', error))
             .then((result) => {
@@ -27,7 +27,10 @@ class Trending extends Component {
             </a>
         );
         return (
-            <div>{listItems}</div>
+            <div className="pakageTrending">
+                <h1>Top Trending</h1>
+                <div className="trending">{listItems}</div>
+            </div>
         )
     }
 }

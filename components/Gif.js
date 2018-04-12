@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-const LOADER = `https://media1.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.gif`;
+const LOADER = `https://media0.giphy.com/media/l0HlTy9x8FZo0XO1i/200w.webp`;
 
 class Gif extends Component {
 
@@ -11,7 +11,7 @@ class Gif extends Component {
 
     render() {
         return (
-            <div>
+            <div className="gif">
                 <h3>{this.props.data.title}</h3>
                 <a href={this.props.data.gifUrl} target="new">
                     <img src={this.handleLoader()}/>

@@ -1,5 +1,20 @@
+$font: sans-serif;
 
-.oklahoma {
-    font-size: 50px;
-    color: green;
+@mixin set-flexbox($direction:false, $items:false, $wrap:false, $content:false) {
+    display: flex;
+    @if $direction { flex-direction: $direction; }
+    @if $items { align-items: $items; }
+    @if $wrap { flex-wrap: $wrap; }
+    @if $content { justify-content: $content; }
+}   // set-flexbox(flex-direction, align-items, flex-wrap, justify-content)
+
+.container {
+    @include set-flexbox(column, center);
+
+    .inscApp {
+        font-size: 45px;
+        font-weight: 700;
+        line-height: 20px;
+        font-family: $font;
+    }
 }
