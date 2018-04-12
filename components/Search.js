@@ -4,18 +4,16 @@ class Search extends Component {
     constructor(props) {
         super(props);
         this.state = {value: ''};
-
     }
 
     handleChange(event) {
-        const searchTextt = event.target.value;
+        const searchText = event.target.value;
         this.setState({
-            searchText: searchTextt
-        })
-        if(searchTextt.length > 2) {
-            this.props.onSearch(searchTextt)
+            value: searchText
+        });
+        if(searchText.length > 2) {
+            this.props.onSearch(searchText)
         }
-
     }
 
     handleKeyUp(event) {
@@ -30,11 +28,11 @@ class Search extends Component {
                  <input type="text"
                      onChange ={this.handleChange.bind(this)}
                      onKeyUp = {this.handleKeyUp.bind(this)}
-                     placeholder="wpisz fraze"
-                     value={this.state.searchText}
+                     placeholder="Search GIF"
+                     value={this.state.value}
                   />
             </div>
-        )
+        );
     }
 }
 

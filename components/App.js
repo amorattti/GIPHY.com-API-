@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styles from './style.scss';
-import Search from './Search.js'
+import Search from './Search'
+import Gif from './Gif'
 const API_GIPHY = 'aUhPqNQX1V9W5wSNJ9J0FOaQdvwgHH7O';
-
 
 class App extends Component {
     constructor(props){
@@ -11,7 +11,6 @@ class App extends Component {
             loader : false,
             searchText : '',
             gif : {},
-            test : 'krowa'
         };
     }
 
@@ -26,7 +25,7 @@ class App extends Component {
                 gifUrl : gif.data.url
             }
             this.setState({
-                loader : true,
+                loader : false,
                 searchText: searchText,
                 gif : getDetails
             });
@@ -47,7 +46,10 @@ class App extends Component {
                 <h1>The GIF Search </h1>
                 <Search
                     onSearch={this.searchGif.bind(this)}
-                    test={this.state.test}
+                />
+                <Gif
+                    loader={this.state.loader}
+                    data={this.state.gif}
                 />
             </div>
         );
