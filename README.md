@@ -1,4 +1,4 @@
-# Project Title
+# Sharing GIFs
 
 Sharing GIFs Api more information on https://developers.giphy.com/docs/
 
