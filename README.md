@@ -2,8 +2,6 @@
 
 Sharing GIFs Api more information on https://developers.giphy.com/docs/
 
-![Optional Text](../master/img.png)
-
 [![Demo](https://j.gifs.com/32qQwO.gif)](https://j.gifs.com/32qQwO.gif)
 
 ## Getting Started
