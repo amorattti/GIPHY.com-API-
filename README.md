@@ -1,4 +1,4 @@
-# Project Title
+# Sharing GIFs
 
 Sharing GIFs Api more information on https://developers.giphy.com/docs/
 
@@ -10,7 +10,8 @@ Sharing GIFs Api more information on https://developers.giphy.com/docs/
 
 1. copy repository
 2. npm install
-3. npm start  / open from build catalog
+3. npm run build
+4. npm start  
 
 ## Available Scripts
 
