@@ -1,53 +1,45 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-const OptimizeJsPlugin = require('optimize-js-plugin');
-const env = process.env.NODE_ENV || 'development';
-console.log('NODE_ENV: ', env)
-config = {
-    entry: [
-        "react-hot-loader/patch",
-        './src/index.js'
-    ],
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-    output: {
-        path: __dirname + '/build',
-        filename: 'bundle.js'
-    },
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                loader: "babel-loader"
-            },
-            {
-                test: /\.scss$/,
-                use: [{
-                    loader: "style-loader" // creates style nodes from JS strings
-                }, {
-                    loader: "css-loader" // translates CSS into CommonJS
-                }, {
-                    loader: "sass-loader" // compiles Sass to CSS
-                }]
-            }
-        ]
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: 'src/index.html',
-            filename: 'index.html',
-            inject: 'body'
-        }),
+module.exports = {
+  entry: './src/index.js',
+  module: {
+    rules: [
+        {
+            test: /\.(js|jsx)$/,
+            exclude: /node_modules/,
+            use: ['babel-loader']
+          },
+        {
+            test: /\.scss$/,
+            use: [{
+                loader: "style-loader" // creates style nodes from JS strings
+            }, {
+                loader: "css-loader" // translates CSS into CommonJS
+            }, {
+                loader: "sass-loader" // compiles Sass to CSS
+            }]
+        }
     ]
-}
-
-if(env === 'production') {
-    config.plugins.push(
-        new webpack.optimize.UglifyJsPlugin(),
-        new OptimizeJsPlugin({
-            sourceMap: false
-        })
-    );
-}
-
-module.exports = config
+},
+  resolve: {
+    extensions: ['*', '.js', '.jsx']
+  },
+  output: {
+    path: __dirname + '/dist',
+    publicPath: '/',
+    filename: 'bundle.js'
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      template: 'src/index.html',
+      filename: 'index.html',
+      inject: 'body'
+    })
+  ],
+  devServer: {
+    contentBase: './dist',
+    hot: true
+  }
+};
