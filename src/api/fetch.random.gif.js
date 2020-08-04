@@ -8,19 +8,19 @@ export const fetchRandomGif = async (name) => {
 		params: {
 			tag: name,
 			api_key: KEY
-		} 
-	}); 
+		}
+	});
 
 	return data;
 };
 
 export const fetchTrendingGifs = async () => {
-	const  { data }  = await axios.get(URL + 'trending', {
+	const { data } = await axios.get(URL + 'trending', {
 		params: {
-			limit:4,
+			limit: 4,
 			api_key: KEY
 		}
 	});
-	
+
 	return data
 };
