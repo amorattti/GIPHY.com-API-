@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { fetchTrendingGifs } from '../api/fetch.random.gif';
+import { fetchTrendingGifs } from '../api/fetch.gif';
 
 const Trending = () => {
     const [giphs, setGiphs] = useState({ data: [] });

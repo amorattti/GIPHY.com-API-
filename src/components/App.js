@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Search from './Search';
 import Gif from './Gif';
 import Trending from './Trending';
-import { fetchRandomGif } from '../api/fetch.random.gif'
+import { fetchRandomGif } from '../api/fetch.gif'
 
 const App = () => {
     const [searchText, setSearchState] = useState('');
