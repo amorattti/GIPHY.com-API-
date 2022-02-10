@@ -15,7 +15,7 @@
     "babel-loader": "^8.1.0",
     "css-loader": "^4.2.0",
     "html-webpack-plugin": "^4.3.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "optimize-js-plugin": "0.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
